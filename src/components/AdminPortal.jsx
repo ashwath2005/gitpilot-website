@@ -23,15 +23,20 @@ export const AdminPortal = ({ onClose }) => {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      // Allow any password with 4+ characters for testing or specific admin pass
-      if (password.length >= 4) {
+      // Allow any passphrase with 4+ characters or admin123
+      if (password.trim().length >= 4) {
         setIsAuthenticated(true);
         setError('');
       } else {
-        setError('Invalid admin credentials. Please enter a valid security passphrase.');
+        setError('Invalid admin credentials. Passphrase must be at least 4 characters.');
       }
       setIsSubmitting(false);
     }, 600);
+  };
+
+  const handleQuickDemoFill = () => {
+    setPassword('admin123');
+    setError('');
   };
 
   const handleSaveConfig = () => {
@@ -82,12 +87,30 @@ export const AdminPortal = ({ onClose }) => {
               </div>
 
               <div className="admin-form-group">
-                <label className="admin-label font-mono">Master Security Passphrase</label>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <label className="admin-label font-mono">Master Security Passphrase</label>
+                  <button
+                    type="button"
+                    onClick={handleQuickDemoFill}
+                    className="font-mono"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--primary-bright)',
+                      fontSize: '11px',
+                      cursor: 'pointer',
+                      textDecoration: 'underline',
+                      padding: 0
+                    }}
+                  >
+                    Auto-fill: admin123
+                  </button>
+                </div>
                 <div className="admin-input-wrapper">
                   <input
                     type={showPassword ? 'text' : 'password'}
                     className="admin-input font-mono"
-                    placeholder="Enter admin passphrase"
+                    placeholder="Enter admin passphrase (e.g. admin123)"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -100,6 +123,9 @@ export const AdminPortal = ({ onClose }) => {
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
+                <span className="font-mono" style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>
+                  💡 Default passphrase: <strong style={{ color: '#818CF8' }}>admin123</strong> (or any 4+ chars)
+                </span>
               </div>
 
               {error && (
@@ -229,7 +255,7 @@ export const AdminPortal = ({ onClose }) => {
 
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="main-btn main-btn-secondary"
                   onClick={() => setIsAuthenticated(false)}
                 >
                   Sign Out
