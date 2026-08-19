@@ -2,7 +2,7 @@ import React from 'react';
 import { PRODUCT } from '../config/product';
 import { DownloadButton } from './DownloadButton';
 
-export const Footer = () => {
+export const Footer = ({ onOpenAdmin }) => {
   return (
     <footer id="contacts" className="footer">
       <section id="contacts" className="footer-sc">
@@ -79,6 +79,20 @@ export const Footer = () => {
                   <div className="media-link-text clone">Changelog</div>
                 </div>
               </a>
+
+              {onOpenAdmin && (
+                <button
+                  type="button"
+                  onClick={onOpenAdmin}
+                  className="footer-media-link nav-link"
+                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
+                >
+                  <div className="hover-link-mask">
+                    <div className="media-link-text original">Admin Portal</div>
+                    <div className="media-link-text clone" style={{ color: '#818CF8' }}>Admin Portal</div>
+                  </div>
+                </button>
+              )}
             </div>
           </div>
 
@@ -88,10 +102,20 @@ export const Footer = () => {
             </div>
             <div className="footer-down-info">
               <div className="policy-link">© 2026 GitPilot. Released under the MIT License.</div>
-              <div className="footer-policy-links">
+              <div className="footer-policy-links" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <span className="badge badge-success font-mono" style={{ fontSize: '11px' }}>
                   ● Production Ready v{PRODUCT.version}
                 </span>
+                {onOpenAdmin && (
+                  <button
+                    type="button"
+                    onClick={onOpenAdmin}
+                    className="footer-admin-badge font-mono"
+                    title="Open Administrator Console (Ctrl+Shift+A)"
+                  >
+                    🔒 Admin
+                  </button>
+                )}
               </div>
             </div>
           </div>
