@@ -23,7 +23,6 @@ export const Navbar = () => {
             <BrandLogo size={34} />
             <span className="sc-brand-name">
               gitpilot
-              <span className="sc-version-pill font-mono">v{PRODUCT.version}</span>
             </span>
           </a>
 
