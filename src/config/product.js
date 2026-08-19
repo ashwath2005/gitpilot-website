@@ -5,7 +5,7 @@
  * ============================================================
  */
 
-const GITHUB_RELEASE_DOWNLOAD_URL = "https://github.com/ashwath2005/GitPilot/releases/download/v1.2.0/GitPilot-Setup-v1.2.0.exe";
+const GITHUB_RELEASE_DOWNLOAD_URL = "https://github.com/ashwath2005/GitPilot/releases/download/v1.2.0/GitPilot-Setup-1.2.0.exe";
 
 export const PRODUCT = {
   name: "GitPilot",
@@ -18,7 +18,7 @@ export const PRODUCT = {
   releaseDate: "August 2026",
   
   // Local File Metadata
-  installerFileName: "GitPilot-Setup-v1.2.0.exe",
+  installerFileName: "GitPilot-Setup-1.2.0.exe",
   localInstallerPath: "D:\\GitPilot\\dist-installer\\GitPilot-Setup-v1.2.0.exe",
   localAppPath: "D:\\GitPilot\\dist-app\\GitPilot-win32-x64\\GitPilot.exe",
 
