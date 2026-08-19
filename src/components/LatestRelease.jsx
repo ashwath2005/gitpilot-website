@@ -1,9 +1,11 @@
 import React from 'react';
 import { ExternalLink, FileCheck, HardDrive, Info } from 'lucide-react';
-import { PRODUCT } from '../config/product';
+import { useRelease } from '../services/useRelease';
 import { DownloadButton } from './DownloadButton';
 
 export const LatestRelease = () => {
+  const product = useRelease();
+
   return (
     <section className="section release-section" id="release">
       <div className="container">
@@ -20,11 +22,11 @@ export const LatestRelease = () => {
             <div className="release-title-area">
               <div className="release-tag-group">
                 <span className="badge badge-success">Latest Stable</span>
-                <span className="badge badge-primary font-mono">v{PRODUCT.version}</span>
+                <span className="badge badge-primary font-mono">v{product.version}</span>
               </div>
-              <h3 className="release-name">{PRODUCT.name} for {PRODUCT.platform}</h3>
+              <h3 className="release-name">{product.name} for {product.platform}</h3>
               <p className="release-meta text-secondary">
-                {PRODUCT.supportedOs} • {PRODUCT.architecture} • Released {PRODUCT.releaseDate}
+                {product.supportedOs} • {product.architecture} • Released {product.releaseDate}
               </p>
             </div>
 
@@ -38,7 +40,7 @@ export const LatestRelease = () => {
 
               <a
                 id="release-notes-btn"
-                href={PRODUCT.releaseNotesUrl}
+                href={product.releaseNotesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-lg"
@@ -54,7 +56,7 @@ export const LatestRelease = () => {
               <FileCheck size={18} className="text-primary-bright" />
               <div>
                 <span className="detail-label">Installer Package:</span>
-                <span className="detail-val font-mono">{PRODUCT.installerFileName}</span>
+                <span className="detail-val font-mono">{product.installerFileName}</span>
               </div>
             </div>
 
