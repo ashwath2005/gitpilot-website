@@ -5,10 +5,6 @@
  * ============================================================
  */
 
-// Toggle between locally bundled installer (for testing/self-hosting) and GitHub Releases
-const USE_LOCAL_SERVER_DOWNLOAD = true;
-
-const LOCAL_DOWNLOAD_PATH = "/downloads/GitPilot-Setup-v1.1.0.exe";
 const GITHUB_RELEASE_DOWNLOAD_URL = "https://github.com/ashwath2005/GitPilot/releases/download/v1.1.0/GitPilot-Setup-v1.1.0.exe";
 
 export const PRODUCT = {
@@ -37,10 +33,9 @@ export const PRODUCT = {
 
   /**
    * Active Download URL
-   * When USE_LOCAL_SERVER_DOWNLOAD is true, the website serves the installer directly
-   * from the public /downloads/ folder so you can download the 1.28 GB setup immediately.
+   * Points to GitHub Releases distribution asset.
    */
-  downloadUrl: USE_LOCAL_SERVER_DOWNLOAD ? LOCAL_DOWNLOAD_PATH : GITHUB_RELEASE_DOWNLOAD_URL,
+  downloadUrl: GITHUB_RELEASE_DOWNLOAD_URL,
   githubDownloadUrl: GITHUB_RELEASE_DOWNLOAD_URL,
-  isHostedPublicly: false,
+  isHostedPublicly: true,
 };
