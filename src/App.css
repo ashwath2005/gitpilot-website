@@ -1,0 +1,941 @@
+/* ==========================================================================
+   GitPilot — Perfectly Aligned Superconscious Architecture & Theme
+   Indigo (#6366F1, #818CF8) • Cyan (#38BDF8) • OLED Black (#050505)
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* 1. Superconscious Navbar                                                   */
+/* -------------------------------------------------------------------------- */
+.sc-navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sc-navbar-inner {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sc-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.sc-brand-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sc-version-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--primary-bright);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.sc-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.sc-nav-link {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: var(--font-display);
+  transition: color 0.15s ease;
+}
+
+.sc-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.sc-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sc-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0 14px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  transition: all 0.15s ease;
+}
+
+.sc-github-link:hover {
+  color: #FFFFFF;
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.sc-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.sc-mobile-menu {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: #08080C;
+  border-bottom: 1px solid var(--border-color);
+  padding: 24px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sc-mobile-nav-link {
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Superconscious Hero Section (Full Viewport Height)                      */
+/* -------------------------------------------------------------------------- */
+.sc-hero-section {
+  position: relative;
+  min-height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 0 60px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sc-hero-blur-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sc-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sc-hero-tag-wrap {
+  margin-bottom: 20px;
+}
+
+.sc-headline-mega {
+  font-size: clamp(56px, 10vw, 116px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  text-transform: lowercase;
+}
+
+.sc-hero-tagline {
+  font-size: clamp(22px, 3.2vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin-bottom: 22px;
+}
+
+.sc-hero-description {
+  font-size: clamp(15.5px, 1.7vw, 18px);
+  color: var(--text-secondary);
+  max-width: 660px;
+  line-height: 1.6;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+/* Superconscious Glass Floating Action Capsule */
+.sc-download-capsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: rgba(13, 13, 18, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 10px 14px 10px 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(99, 102, 241, 0.15);
+  backdrop-filter: blur(16px);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.sc-capsule-info {
+  text-align: left;
+}
+
+.sc-capsule-headline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sc-capsule-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.sc-capsule-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Superconscious Manifesto Section (.about-sc)                            */
+/* -------------------------------------------------------------------------- */
+.about-sc {
+  padding: 120px 0 90px;
+  text-align: center;
+  position: relative;
+}
+
+.manifesto-tag-wrap {
+  margin-bottom: 22px;
+}
+
+.manifesto-title {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+}
+
+.manifesto-capsules-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 54px;
+  flex-wrap: wrap;
+  max-width: 960px;
+}
+
+.manifesto-capsule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(13, 13, 18, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 14px 28px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 220px;
+}
+
+.manifesto-capsule:hover {
+  border-color: var(--border-hover);
+  background: rgba(19, 19, 26, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+}
+
+.capsule-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.capsule-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.about-pg-area {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-pg-text-d {
+  font-size: clamp(17px, 1.8vw, 22px);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.about-space-span {
+  float: left;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 76px;
+  line-height: 54px;
+  padding-top: 4px;
+  padding-right: 12px;
+  color: var(--primary-bright);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Superconscious How It Works Section (.how-work-sc)                      */
+/* -------------------------------------------------------------------------- */
+.how-work-sc {
+  padding: 100px 0;
+}
+
+.how-work-headline {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.your-space-span {
+  margin: 0 8px;
+}
+
+.how-work-widgets-front {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.hw-card-block {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hw-card-block:hover {
+  transform: translateY(-3px);
+}
+
+.hw-card {
+  position: relative;
+  z-index: 1;
+  background: #08080C;
+  border: 1px solid var(--border-color);
+  border-radius: inherit;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hw-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.headline-h4 {
+  font-size: 16.5px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+  min-height: 44px;
+}
+
+.body-main.opacity-80 {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Superconscious What Is / Core Features Section (.what-is-sc)            */
+/* -------------------------------------------------------------------------- */
+.what-is-sc {
+  padding: 100px 0;
+}
+
+.what-is-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.what-is-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.what-is-widget-col {
+  width: 100%;
+  display: flex;
+}
+
+.what-is-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.what-is-badge-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.what-is-badge-wrap .badge {
+  display: inline-flex;
+  width: auto;
+  align-self: flex-start;
+}
+
+.what-is-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+}
+
+.widget-mockup-frame {
+  background: #08080C;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.widget-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--primary-bright);
+  margin-bottom: 12px;
+}
+
+.widget-code-line {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.widget-code-line.del { background: rgba(239, 68, 68, 0.12); color: #F87171; }
+.widget-code-line.add { background: rgba(34, 197, 94, 0.12); color: #4ADE80; }
+
+.widget-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--success);
+  margin-top: 10px;
+}
+
+.headline-h3 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+/* Presets */
+.sc-preset-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.sc-preset-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sc-preset-btn.active {
+  background: var(--primary);
+  border-color: var(--primary-bright);
+  color: #FFFFFF;
+}
+
+.sc-terminal-preview {
+  background: #020203;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #818CF8;
+  overflow-x: auto;
+}
+
+.sc-scanner-status {
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-safe { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ADE80; }
+.status-danger { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); color: #FBBF24; }
+
+/* -------------------------------------------------------------------------- */
+/* 7.5 Release & FAQ Sections                                                 */
+/* -------------------------------------------------------------------------- */
+.release-card {
+  position: relative;
+  background: #08080C;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  overflow: hidden;
+}
+
+.release-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+.release-tag-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.release-name {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.release-meta {
+  font-size: 13.5px;
+}
+
+.release-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.release-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.release-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+}
+
+.detail-label {
+  display: block;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-val {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.release-hosting-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+}
+
+/* FAQ */
+.faq-accordion-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background: #08080C;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.faq-item.open {
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.faq-question-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-question-btn:hover {
+  color: var(--primary-bright);
+}
+
+.faq-chevron {
+  color: var(--text-muted);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.faq-chevron.rotated {
+  transform: rotate(180deg);
+  color: var(--primary-bright);
+}
+
+.faq-answer-pane {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.22s cubic-bezier(0.16, 1, 0.3, 1), padding 0.2s ease;
+  padding: 0 20px;
+}
+
+.faq-item.open .faq-answer-pane {
+  max-height: 260px;
+  padding: 0 20px 18px;
+}
+
+.faq-answer-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 8. Refined Conversion CTA Section (.cta-sc)                                */
+/* -------------------------------------------------------------------------- */
+.cta-sc {
+  padding: 100px 0 120px;
+}
+
+.cta-card-wrapper {
+  position: relative;
+  border-radius: var(--radius-xl);
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  background: #08080C;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.cta-card {
+  position: relative;
+  z-index: 1;
+  padding: 68px 44px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 65%);
+}
+
+.cta-badge-wrap {
+  margin-bottom: 20px;
+}
+
+.cta-title {
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.cta-description {
+  font-size: clamp(15.5px, 1.8vw, 18px);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.cta-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.meta-dot {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 9. Superconscious Footer Section (.footer-sc)                              */
+/* -------------------------------------------------------------------------- */
+.footer {
+  background: #040406;
+  border-top: 1px solid var(--border-color);
+  padding: 80px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-top-block {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.footer-mail-link {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--font-display);
+}
+
+.footer-download-app {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.body-middle {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.footer-middle-block {
+  border-top: 1px solid var(--border-color);
+  padding: 28px 0;
+  margin-bottom: 36px;
+}
+
+.footer-media-links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+.footer-media-link {
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: var(--font-display);
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 13vw, 160px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  color: rgba(255, 255, 255, 0.03);
+  text-align: center;
+  user-select: none;
+  margin-bottom: 20px;
+}
+
+.footer-down-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive Media Queries                                                   */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .how-work-widgets-front {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .what-is-item {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .release-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sc-nav-links, .sc-github-link {
+    display: none;
+  }
+  .sc-mobile-toggle {
+    display: block;
+  }
+  .sc-download-capsule {
+    border-radius: var(--radius-lg);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sc-capsule-info {
+    text-align: center;
+  }
+  .manifesto-capsules-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .manifesto-capsule {
+    width: 100%;
+    min-width: 0;
+  }
+  .how-work-widgets-front {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-block {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-download-app {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-down-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
